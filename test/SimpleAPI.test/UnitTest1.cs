@@ -14,6 +14,4 @@ public class UnitTest1
 
         Assert.NotNull(returnVar);
     }
-
-   
 }
