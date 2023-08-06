@@ -13,11 +13,15 @@ variables:
   buildConfiguration: 'Release'
 
 steps:
+- task: UseDotNet@2
+    displayName: 'Install .NET Core SDK 7.x'
+    inputs:
+      version: 7.x
 
-- task: DotNetCoreCLI@2
+- task: UseDotNet@2
   inputs:
     command: test
-    projects: '**/*Test/SimpleAPI.test/*.csproj'
+    projects: '**/*Test/*.csproj'
     arguments: '--configuration $(buildConfiguration)'
 
 - script: dotnet build --configuration $(buildConfiguration)
